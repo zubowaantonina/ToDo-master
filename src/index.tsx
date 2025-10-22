@@ -58,7 +58,6 @@ const router=createBrowserRouter([
     path:'*',
     element:<NotFound />
   }
-// ], {basename: process.env.NODE_ENV === 'development' ? '/' : '/todo-rdx/'}
 ],{basename: '/app/'}
 )
 
