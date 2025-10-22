@@ -15,7 +15,7 @@ export const ItemDescription = ({ todos }: ComponentProps) => {
         } else {
             navigate('/404')
         }
-    },[todos, id, navigate])
+    }, [todos, id, navigate])
     return (
         <div className="container">
             <h1>{todo?.text}</h1>
