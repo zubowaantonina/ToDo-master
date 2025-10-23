@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom"
 interface ComponentProps {
     todos: ToDo[]
 }
-export const ItemDescription = ({ todos }: ComponentProps) => {
+export const ViewListItem = ({ todos }: ComponentProps) => {
     const { id } = useParams()
     const navigate = useNavigate()
     const [todo, setTodo] = useState<ToDo>()
