@@ -1,38 +1,31 @@
-import { useState } from 'react'
+
 import { Form } from '../components/Form/Form'
 import { ToDoList } from '../components/ToDoList/ToDoList'
 import { ToDo } from '../models/todo-item'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '../store'
+import { createAction, deleteAction, updateAction } from '../features/todoList'
 
 export const ToDoListPage = () => {
-    const [todos, setToDos] = useState<ToDo[]>([]);
+   
+    const todoList=useSelector((state:RootState)=>state.todoList.todos)
+const dispatch=useDispatch()
 
     const createNewToDo = (text: string) => {
-        const newToDo: ToDo = {
-            id: todos.length,
-            text: text,
-            isDone: false
-        }
-        setToDos([...todos, newToDo])
+      dispatch(createAction(text)) 
     }
     const updateTodo = (toDoItem: ToDo) => {
-        const newTodos = todos.map((todo) => {
-            if (todo.id === toDoItem.id) {
-                todo.isDone = !todo.isDone
-            }
-            return todo
-        })
-        setToDos(newTodos)
+        dispatch(updateAction(toDoItem))
 
     }
     const deleteTodo = (toDoItem: ToDo) => {
-        const newTodos = todos.filter((todo) => todo.id !== toDoItem.id)
-        setToDos(newTodos)
+       dispatch(deleteAction(toDoItem))
     }
     return (
         <>
             
             <Form createNewToDo={createNewToDo} />
-            <ToDoList todos={todos} updateTodo={updateTodo} deleteTodo={deleteTodo} />
+            <ToDoList todos={todoList} updateTodo={updateTodo} deleteTodo={deleteTodo} />
         </>
 
     )
