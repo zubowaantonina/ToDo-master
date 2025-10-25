@@ -32,7 +32,7 @@ export const FormField = styled.input`
 
 `
 export const FormControl = styled.button<{ icon: string }>`
- width: 50px;
+    width: 50px;
     height: 50px;
     background: transparent url(${(props) => props.icon}) no-repeat center/cover;
     position: absolute;

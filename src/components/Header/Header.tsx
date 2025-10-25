@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import classes from './Header.module.scss'
-import { HeaderContainer,  ToDoHeader } from './Header.styled'
+import { HeaderContainer,  ThemeButton,  ToDoHeader, ToggleButton } from './Header.styled'
 import { useDispatch } from 'react-redux'
 import { toggleThemeAction } from '../../features/themeList'
 
@@ -14,9 +14,9 @@ export const Header = () => {
             <HeaderContainer>
                 <NavLink to="/" className={getActiveClass}>ToDo</NavLink>
                 <NavLink to="/list" className={getActiveClass}>List</NavLink>
-                <div className={classes.toggleButton}>
-                    <button onClick={()=>dispatch(toggleThemeAction())} >toggle</button>
-                </div>
+                <ToggleButton>
+                    <ThemeButton onClick={()=>dispatch(toggleThemeAction())} >toggle</ThemeButton>
+                </ToggleButton>
             </HeaderContainer>
         </ToDoHeader>
     )

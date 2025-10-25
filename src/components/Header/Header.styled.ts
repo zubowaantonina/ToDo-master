@@ -23,7 +23,7 @@ export const HeaderContainer = styled.div`
     gap: 20px;
 `
 export const HeaderNavLink = styled(NavLink)`
- text-decoration: none;
+    text-decoration: none;
     padding: 10px;
     color: #fff;
     &.active {
@@ -31,4 +31,19 @@ export const HeaderNavLink = styled(NavLink)`
 		background: #fff;
 		border-radius: 10px;
 	}
+`
+export const ToggleButton=styled.div`
+ position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: #477fe6ff;
+`
+export const ThemeButton=styled.button`
+color: #200183b4;
+		background: #9db8f3ff;
+		 border: 0;
+    box-shadow: none;
+    outline: none;
+      border-radius: 25px;
 `
