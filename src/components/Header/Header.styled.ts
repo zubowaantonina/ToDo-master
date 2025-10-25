@@ -1,6 +1,7 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-export const ToDoHeader=styled.header`
+export const ToDoHeader = styled.header`
  position: fixed;
     top: 0;
     right: 0;
@@ -18,9 +19,15 @@ export const HeaderContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 20px;
 `
-export const HeaderLink=styled.link`
+export const HeaderNavLink = styled(NavLink)`
  text-decoration: none;
     padding: 10px;
     color: #fff;
+    &.active {
+		color: #390ac6b4;
+		background: #fff;
+		border-radius: 10px;
+	}
 `
