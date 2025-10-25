@@ -7,23 +7,23 @@ import { RootState } from '../store'
 import { createAction, deleteAction, updateAction } from '../features/todoList'
 
 export const ToDoListPage = () => {
-   
-    const todoList=useSelector((state:RootState)=>state.todoList.todos)
-const dispatch=useDispatch()
+
+    const todoList = useSelector((state: RootState) => state.todoList.todos)
+    const dispatch = useDispatch()
 
     const createNewToDo = (text: string) => {
-      dispatch(createAction(text)) 
+        dispatch(createAction(text))
     }
     const updateTodo = (toDoItem: ToDo) => {
         dispatch(updateAction(toDoItem))
 
     }
     const deleteTodo = (toDoItem: ToDo) => {
-       dispatch(deleteAction(toDoItem))
+        dispatch(deleteAction(toDoItem))
     }
     return (
         <>
-            
+
             <Form createNewToDo={createNewToDo} />
             <ToDoList todos={todoList} updateTodo={updateTodo} deleteTodo={deleteTodo} />
         </>

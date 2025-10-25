@@ -14,6 +14,7 @@ export const ToDoHeader = styled.header`
 
 export const HeaderContainer = styled.div`
   max-width: 97%;
+  position: relative;
     width: 100%;
     margin: 0 auto;
     display: flex;
