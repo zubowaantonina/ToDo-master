@@ -1,48 +1,51 @@
 import { ToDoListItem } from "./ToDoListItem/ToDoListItem"
-import './ToDoList.scss'
-import { ToDo } from "../../models/todo-item"
-import {  ToDoIListBlock, ToDoIListContainer } from "./ToDoList.styled"
+import './ToDoList.scss';
+import { ToDo } from "../../models/todo-item";
+
+export const ToDoList = (props: { todos: ToDo[], updateTodo: Function, deleteTodo: Function }) => {
 
 
-export const ToDoList = (props: { todos: ToDo[], deleteTodo: Function, updateTodo: Function }) => {
-
-
-    const checkedList = () => {
+    const chekenList = () => {
         return props.todos
             .filter((item) => !item.isDone)
             .map((item) => {
-                return (
-                    <ToDoListItem
-                        toDoItem={item}
-                        key={item.id}
-                        updateTodo={props.updateTodo}
-                        deleteTodo={props.deleteTodo} />
-                )
-
+                return (<ToDoListItem
+                    toDoItem={item}
+                    key={item.id}
+                    updateTodo={props.updateTodo}
+                    deleteTodo={props.deleteTodo}
+                />)
             })
     }
-    const unCheckedList = () => {
+    const unchekenList = () => {
         return props.todos
+
             .filter((item) => item.isDone)
             .map((item) => {
-                return (
-                    <ToDoListItem
-                        toDoItem={item}
-                        key={item.id}
-                        updateTodo={props.updateTodo}
-                        deleteTodo={props.deleteTodo} />
-                )
-
+                return (<ToDoListItem
+                    toDoItem={item}
+                    key={item.id}
+                    updateTodo={props.updateTodo}
+                    deleteTodo={props.deleteTodo}
+                />)
             })
     }
-   return (
-		<ToDoIListContainer>
-			<ToDoIListBlock $status='failed'>
-				{unCheckedList()}
-			</ToDoIListBlock>
-			<ToDoIListBlock $status='completed'>
-				{checkedList()}
-			</ToDoIListBlock>
-		</ToDoIListContainer>
-	);
+    return (
+
+
+        <div className="todo-container">
+            <ul className="todo-list failed">
+                {
+                    chekenList()
+                }
+
+            </ul>
+            <ul className="todo-list completed">
+                {
+                    unchekenList()
+                }
+
+            </ul>
+        </div>
+    )
 }
