@@ -32,18 +32,23 @@ export const HeaderNavLink = styled(NavLink)`
 		border-radius: 10px;
 	}
 `
-export const ToggleButton=styled.div`
+export const ToggleButton = styled.div`
  position: absolute;
     top: 50%;
     right: 0;
     transform: translateY(-50%);
     background-color: #477fe6ff;
 `
-export const ThemeButton=styled.button`
+export const ThemeButton = styled.button`
 color: #200183b4;
 		background: #9db8f3ff;
 		 border: 0;
     box-shadow: none;
     outline: none;
       border-radius: 25px;
+      cursor: pointer;
+      &:hover {
+		background-color: ${({ theme }) =>
+    theme.colors.backgroundSecondary};
+	}
 `

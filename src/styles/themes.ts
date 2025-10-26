@@ -14,8 +14,8 @@ const dark: Theme = {
 
     name: 'dark',
     colors:{
-        backgroundPrimary: 'black',
-        backgroundSecondary: 'gray'
+        backgroundPrimary: 'rgba(43, 89, 124, 1)',
+        backgroundSecondary: 'rgba(118, 153, 180, 1)'
     }
     
     }
